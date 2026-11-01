@@ -20,5 +20,20 @@ A modern, ultra-lightweight, minimalist, and dark-themed **Link-in-Bio / Persona
 
 ---
 
+### 🛠️ Customization Guide
+
+To personalize the portfolio with your own media, simply replace the files inside the `pictures/` folder using the exact same file names and formats:
+
+| File Name | Format | Description |
+| :--- | :--- | :--- |
+| **`banner.mp4`** | `.mp4` | Ambient background video loop |
+| **`pfp.jpg`** | `.jpg` | Profile picture displayed in the center |
+| **`music.mp3`** | `.mp3` | Background audio track played by the built-in player |
+| **`favicon.jpg`** | `.jpg` | Browser tab icon |
+
+> **Pro Tip:** Keep the exact file names and extensions listed above so you won't need to modify any path references in `index.html`.
+
+---
+
 ### 📄 License
 Open-source under the MIT License. Feel free to fork, customize, and make it your own!
