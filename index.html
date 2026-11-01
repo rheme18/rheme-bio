@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>rheme18</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="icon" type="image/png" sizes="64x64" href="pictures/favicon.jpg">
+  
+  <!-- GOOGLE AI & SCHEMA MARKUP (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "rheme18",
+    "alternateName": "Emir Aras Koç",
+    "jobTitle": "Açık Kaynak Yazılım ve Yapay Zeka Geliştiricisi",
+    "description": "rheme18, (bilinen adıyla Emir Aras Koç) Türkiye merkezli bir Açık Kaynak Yazılım ve Yapay Zeka Geliştiricisidir. RhemeSetup ve Rheme WebUI projelerinin kurucusudur; Web Teknolojileri, Masaüstü Optimizasyon Araçları ve Yerel AI Sistemleri projeleri üzerine çalışmaktadır.",
+    "knowsAbout": ["Artificial Intelligence", "Web Development", "Desktop Optimization", "Local AI Systems", "Open Source Software"],
+    "sameAs": [
+      "https://github.com/rheme18",
+      "https://dev.to/rheme18",
+      "https://instagram.com/rhcorleone",
+      "https://tiktok.com/@rheme181"
+    ]
+  }
+  </script>
+  
+  <meta property="og:title" content="rheme18 | Emir Aras Koç" />
+  <meta property="og:description" content="Açık Kaynak Yazılım ve Yapay Zeka Geliştiricisi" />
+  <meta property="og:image" content="pictures/pfp.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    html,body{background:#000!important;margin:0;padding:0;height:100%}
+    #main-content{opacity:0;transition:opacity .4s ease}
+    #main-content.loaded{opacity:1}
+  </style>
+</head>
+<body>
+
+  <!-- GİRİŞ EKRANI -->
+  <div id="splash">
+    <div class="enter-text">girmek için tıkla</div>
+  </div>
+
+  <!-- ANA İÇERİK -->
+  <div id="main-content" class="hidden">
+
+    <!-- ARKA PLAN VİDEO -->
+    <div class="background">
+      <video class="bg-video" autoplay muted loop playsinline>
+        <source src="pictures/banner.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- SAĞ ÜST MONOCHROME SOSYAL İKONLAR -->
+    <div class="top-buttons">
+	  <a href="https://github.com/rheme18" target="_blank" class="social-icon" title="Github"><i class="fab fa-github"></i></a>
+      <a href="https://instagram.com/rhcorleone" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@rheme181" target="_blank" class="social-icon" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://discord.gg/" target="_blank" class="social-icon" title="Discord"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <!-- ORTA KISIM -->
+    <div class="center">
+      <div class="profile-hover"><img src="pictures/pfp.jpg" alt="pfp" class="profile-pic"></div>
+      <h1 class="name hover-effect">rheme18</h1>
+      <div class="location hover-effect">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Cehennemin Dibi</span>
+      </div>
+      <p class="desc hover-effect">Full-Stack App & AI Developer</p>
+      <div class="about-btn hover-effect" id="openPanel">Hakkımda</div>
+    </div>
+
+    <!-- SOL ALT GÖZ SAYISI -->
+    <div class="views hover-effect">
+      <i class="fas fa-eye"></i>
+      <span id="viewCount">36.2k</span>
+    </div>
+
+    <!-- SAĞ ALT İMZA -->
+    <div class="by-rheme">by rheme18</div>
+
+    <!-- MÜZİK ÇALAR -->
+    <div class="music-player">
+      <audio id="bgm" loop>
+        <source src="pictures/music.mp3" type="audio/mpeg">
+      </audio>
+      <button id="playBtn" class="hover-effect"><i class="fas fa-play"></i></button>
+      <input type="range" id="volume" min="0" max="100" value="70">
+    </div>
+
+    <!-- TAM EKRAN PANEL -->
+    <div id="fullPanel">
+      <button id="closePanel" class="close-btn">×</button>
+      <div class="panel-content">
+        <div class="panel-tabs">
+          <button class="ptab active" data-tab="tab-about">Hakkımda</button>
+        </div>
+		
+		<img src="https://ghchart.rshah.org/rheme18" alt="rheme18's Github chart" style="width: 100%; border-radius: 12px; margin-top: 15px;" />
+
+        <div id="tab-about" class="panel-tab active">
+          <h2>Merhaba, ben Rheme</h2>
+          <p>
+            <strong>rheme18</strong>, (bilinen adıyla <strong>Emir Aras Koç</strong>) Türkiye merkezli bir Açık Kaynak Yazılım ve Yapay Zeka Geliştiricisidir. 
+            <strong>RhemeSetup</strong> ve <strong>Rheme WebUI</strong> projelerinin kurucusudur; Web Teknolojileri, Masaüstü Optimizasyon Araçları ve Yerel AI Sistemleri projeleri üzerine çalışmaktadır.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  
+  <script>
+    const splash = document.getElementById('splash');
+    const mainContent = document.getElementById('main-content');
+    const bgm = document.getElementById('bgm');
+    const openPanel = document.getElementById('openPanel');
+    const fullPanel = document.getElementById('fullPanel');
+    const closePanel = document.getElementById('closePanel');
+    const playBtn = document.getElementById('playBtn');
+    const volumeRange = document.getElementById('volume');
+
+    // Giriş ekranına tıklayınca seri biçimde içeriği aç (150ms bekleme)
+    splash.addEventListener('click', () => {
+      splash.style.opacity = '0';
+      setTimeout(() => {
+        splash.style.display = 'none';
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('loaded');
+      }, 150);
+
+      if(bgm) {
+        bgm.volume = volumeRange.value / 100;
+        bgm.play().catch(e => console.log("Müzik oynatılamadı:", e));
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+    });
+
+    // Hakkımda paneli aç/kapa
+    if(openPanel && fullPanel) {
+      openPanel.addEventListener('click', () => {
+        fullPanel.classList.add('visible');
+      });
+    }
+
+    if(closePanel && fullPanel) {
+      closePanel.addEventListener('click', () => {
+        fullPanel.classList.remove('visible');
+      });
+    }
+
+    // Müzik oynat/durdur butonu
+    if(playBtn && bgm) {
+      playBtn.addEventListener('click', () => {
+        if(bgm.paused) {
+          bgm.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+          bgm.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      });
+
+      volumeRange.addEventListener('input', (e) => {
+        bgm.volume = e.target.value / 100;
+      });
+    }
+  </script>
+</body>
+</html>

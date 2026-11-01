@@ -1,0 +1,160 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; overflow:hidden; height:100vh; color:white; }
+.hidden { display:none; }
+
+/* ====================== GİRİŞ EKRANI ====================== */
+#splash {
+  position:fixed; top:0; left:0; width:100%; height:100%; background:#000;
+  display:flex; align-items:center; justify-content:center; z-index:9999;
+  cursor:pointer; transition:opacity 0.2s ease;
+}
+.enter-text {
+  font-family:'Arial Black',Arial,sans-serif;
+  font-size:38px; font-weight:900; color:#fff;
+  letter-spacing:1.5px; text-transform:lowercase;
+  text-shadow:0 0 12px rgba(255,255,255,0.35);
+  transition:all 0.35s ease;
+}
+.enter-text:hover {
+  transform:scale(1.05);
+  text-shadow:0 0 18px rgba(255,255,255,0.55);
+}
+
+/* ====================== ARKA PLAN ====================== */
+.background { position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; }
+.bg-video { width:100%; height:100%; object-fit:cover; }
+
+/* ====================== SAĞ ÜST MONOCHROME SOSYAL İKONLAR ====================== */
+.top-buttons { 
+  position: fixed; 
+  top: 25px; 
+  right: 25px; 
+  z-index: 999; 
+  gap: 16px; 
+  display: flex; 
+  align-items: center; 
+}
+.social-icon {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 24px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.4);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.social-icon:hover {
+  color: #fff;
+  transform: translateY(-4px) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ====================== HOVER EFEKTLERİ ====================== */
+.hover-effect, .profile-hover { transition:all 0.35s ease; cursor:default; }
+.hover-effect:hover, .profile-hover:hover {
+  transform:scale(1.08); filter:brightness(1.3);
+  text-shadow:0 0 20px rgba(0,200,255,0.8);
+}
+.profile-hover:hover img { transform:scale(1.12); box-shadow:0 0 80px rgba(0,200,255,0.6); }
+
+/* ====================== ORTA KISIM ====================== */
+.center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; z-index:10; }
+.profile-pic { width:160px; height:160px; border-radius:50%; object-fit:cover;
+  border:5px solid rgba(255,255,255,0.3); box-shadow:0 0 60px rgba(255,255,255,0.3); }
+.name { font-size:58px; font-weight:900; margin:16px 0 8px; }
+.location { font-size:17px; margin:8px 0 16px; opacity:0.9; }
+.location i { margin-right:8px; color:white !important; }
+.desc { font-size:19px; letter-spacing:1.4px; opacity:0.9; }
+
+/* HAKKIMDA BUTONU */
+.about-btn {
+  margin-top: 32px;
+  font-size: 19px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.about-btn:hover {
+  color: white;
+  text-shadow: 0 0 25px rgba(0,200,255,0.9);
+  transform: scale(1.08);
+}
+
+/* ====================== SOL ALT GÖZ ====================== */
+.views { position:fixed; bottom:30px; left:30px; font-size:18px; z-index:10; }
+.views i { margin-right:8px; opacity:0.8; }
+
+/* ====================== SAĞ ALT İMZA ====================== */
+.by-rheme {
+  position:fixed; bottom:18px; right:24px; font-size:13px; color:rgba(255,255,255,0.4);
+  letter-spacing:1.2px; z-index:999; user-select:none; transition:all 0.3s ease;
+}
+.by-rheme:hover { color:rgba(255,255,255,0.9); text-shadow:0 0 12px rgba(0,200,255,0.6); }
+
+/* ====================== MÜZİK ÇALAR ====================== */
+.music-player {
+  position:fixed; top:25px; left:25px; z-index:999; display:flex; align-items:center; gap:12px;
+  background:rgba(0,0,0,0.4); padding:10px 16px; border-radius:50px; backdrop-filter:blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#playBtn { background:none; border:none; color:white; font-size:22px; cursor:pointer; padding:4px; }
+#volume { width:100px; cursor:pointer; }
+#volume::-webkit-slider-thumb { background:#fff; height:14px; width:14px; border-radius:50%; }
+
+/* ====================== TAM EKRAN PANEL (YARI SAYDAM & TAM ORTALANMIŞ) ====================== */
+#fullPanel {
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.35); /* Katman hafifletildi */
+  backdrop-filter:blur(12px);
+  z-index:99999; display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity 0.4s ease;
+}
+#fullPanel.visible { opacity:1; pointer-events:all; }
+
+.panel-content {
+  background: rgba(10, 10, 15, 0.55); /* Yarı saydam siyah kutu */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 40px 60px;
+  width: 90%;
+  max-width: 720px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.close-btn {
+  position:absolute; top:20px; right:25px; background:none; border:none;
+  color:white; font-size:36px; cursor:pointer; opacity:0.7; transition:0.3s;
+}
+.close-btn:hover { opacity:1; transform:rotate(90deg); }
+
+.panel-tabs {
+  display:flex; justify-content:center; gap:40px; margin-bottom:25px; flex-wrap:wrap; width:100%;
+}
+.ptab {
+  background:none; border:none; color:rgba(255,255,255,0.8);
+  font-size:22px; font-weight:bold; cursor:pointer; padding:8px 16px; transition:0.4s;
+}
+.ptab:hover, .ptab.active { color:white; text-shadow:0 0 15px rgba(255,255,255,0.6); }
+
+.panel-tab { display:none; color:#eee; line-height:1.8; font-size:17px; width:100%; text-align:center; }
+.panel-tab.active { display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.panel-tab h2 { color:#fff; margin-bottom:20px; text-align:center; font-size:26px; }
+.panel-tab p { max-width:600px; margin:0 auto; text-align:center; }
+.panel-tab a { color:#00c3ff; text-decoration:underline; }
